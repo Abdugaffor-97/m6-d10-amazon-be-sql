@@ -1,5 +1,5 @@
 const { Router } = require("express");
-const { Review } = require("../../models");
+const { Cart } = require("../../models");
 
 const router = Router();
 
@@ -7,8 +7,8 @@ router
   .route("/")
   .get(async (req, res, next) => {
     try {
-      const reviews = await Review.findAll();
-      res.send(reviews);
+      const carts = await Cart.findAll();
+      res.send(carts);
     } catch (error) {
       console.log(error);
       next(error);
@@ -16,8 +16,8 @@ router
   })
   .post(async (req, res, next) => {
     try {
-      const newReview = await Review.create(req.body);
-      res.send(newReview);
+      const newCart = await Cart.create(req.body);
+      res.send(newCart);
     } catch (error) {
       console.log(error);
       next(error);
@@ -28,8 +28,8 @@ router
   .route("/:id")
   .get(async (req, res, next) => {
     try {
-      const review = await Review.findByPk(req.params.id);
-      res.send(review);
+      const cart = await Cart.findByPk(req.params.id);
+      res.send(cart);
     } catch (error) {
       console.log(error);
       next(error);
@@ -37,13 +37,13 @@ router
   })
   .put(async (req, res, next) => {
     try {
-      updatedReview = await Review.update(req.body, {
+      updatedCart = await Cart.update(req.body, {
         returning: true,
         plain: true,
         where: { id: req.params.id },
       });
 
-      res.send(updatedReview);
+      res.send(updatedCart);
     } catch (error) {
       console.log(error);
       next(error);
@@ -51,7 +51,7 @@ router
   })
   .delete(async (req, res, next) => {
     try {
-      Review.destroy({ where: { id: req.params.id } }).then((info) => {
+      Cart.destroy({ where: { id: req.params.id } }).then((info) => {
         if (info > 0) res.send("Deleted");
         else res.send("Not matched");
       });
