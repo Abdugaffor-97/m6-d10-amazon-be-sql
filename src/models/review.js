@@ -6,4 +6,8 @@ const Review = (sequelize) =>
     review: { type: DataTypes.TEXT, allowNull: false },
   });
 
+Review.associate = (models) => {
+  belongsToMany(models.User);
+};
+
 module.exports = Review;

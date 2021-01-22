@@ -3,6 +3,7 @@ const Product = require("./product");
 const Cart = require("./cart");
 const Category = require("./category");
 const Review = require("./review");
+const User = require("./user");
 
 const sequelize = new Sequelize(
   process.env.PGDATABASE,
@@ -19,6 +20,7 @@ const models = {
   Cart: Cart(sequelize),
   Category: Category(sequelize),
   Review: Review(sequelize),
+  User: User(sequelize),
 };
 
 models.sequelize = sequelize;
