@@ -1,5 +1,5 @@
 const { Router } = require("express");
-const { Product } = require("../../models");
+const { Review } = require("../../models");
 
 const router = Router();
 
@@ -7,8 +7,8 @@ router
   .route("/")
   .get(async (req, res, next) => {
     try {
-      const products = await Product.findAll();
-      res.send(products);
+      const reviews = await Review.findAll();
+      res.send(reviews);
     } catch (error) {
       console.log(error);
       next(error);
@@ -16,7 +16,7 @@ router
   })
   .post(async (req, res, next) => {
     try {
-      const newPorduct = await Product.create(req.body);
+      const newPorduct = await Review.create(req.body);
       res.send(newPorduct);
     } catch (error) {
       console.log(error);
@@ -28,8 +28,8 @@ router
   .route("/:id")
   .get(async (req, res, next) => {
     try {
-      const product = await Product.findByPk(req.params.id);
-      res.send(product);
+      const Review = await Review.findByPk(req.params.id);
+      res.send(Review);
     } catch (error) {
       console.log(error);
       next(error);
@@ -37,13 +37,13 @@ router
   })
   .put(async (req, res, next) => {
     try {
-      updatedProduct = await Product.update(req.body, {
+      updatedReview = await Review.update(req.body, {
         returning: true,
         plain: true,
         where: { id: req.params.id },
       });
 
-      res.send(updatedProduct);
+      res.send(updatedReview);
     } catch (error) {
       console.log(error);
       next(error);
@@ -51,7 +51,7 @@ router
   })
   .delete(async (req, res, next) => {
     try {
-      Product.destroy({ where: { id: req.params.id } }).then((info) => {
+      Review.destroy({ where: { id: req.params.id } }).then((info) => {
         if (info > 0) res.send("Deleted");
         else res.send("Not matched");
       });
