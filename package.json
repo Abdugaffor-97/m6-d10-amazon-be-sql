@@ -4,12 +4,12 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon ./src/server.js"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Abdugaffor-97/m6-d10-amazon-be-sql.git",
-    "dev": "nodemon ./src/server.js"
+    "url": "git+https://github.com/Abdugaffor-97/m6-d10-amazon-be-sql.git"
   },
   "keywords": [],
   "author": "Abdug'affor Abdurahimov",

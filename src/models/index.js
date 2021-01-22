@@ -1,5 +1,8 @@
 const { Sequelize } = require("sequelize");
 const Product = require("./product");
+const Cart = require("./cart");
+const Category = require("./category");
+const Review = require("./review");
 
 const sequelize = new Sequelize(
   process.env.PGDATABASE,
@@ -12,7 +15,10 @@ const sequelize = new Sequelize(
 );
 
 const models = {
-  Product: Product(),
+  Product: Product(sequelize),
+  Cart: Cart(sequelize),
+  Category: Category(sequelize),
+  Review: Review(sequelize),
 };
 
 models.sequelize = sequelize;
