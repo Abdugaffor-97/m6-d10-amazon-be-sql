@@ -5,6 +5,8 @@ const listEndpoints = require("express-list-endpoints");
 const models = require("./models");
 const productRoutes = require("./services/product");
 const reviewRoutes = require("./services/review");
+const categoryRoutes = require("./services/category");
+const cartRoutes = require("./services/cart");
 
 const app = express();
 
@@ -13,6 +15,8 @@ app.use(express.json());
 
 app.use("/products", productRoutes);
 app.use("/reviews", reviewRoutes);
+app.use("/categories", categoryRoutes);
+app.use("/carts", cartRoutes);
 
 console.log(listEndpoints(app));
 
