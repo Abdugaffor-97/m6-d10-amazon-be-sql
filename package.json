@@ -1,0 +1,31 @@
+{
+  "name": "m6-d10-amazon-be-sql",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Abdugaffor-97/m6-d10-amazon-be-sql.git",
+    "dev": "nodemon ./src/server.js"
+  },
+  "keywords": [],
+  "author": "Abdug'affor Abdurahimov",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Abdugaffor-97/m6-d10-amazon-be-sql/issues"
+  },
+  "homepage": "https://github.com/Abdugaffor-97/m6-d10-amazon-be-sql#readme",
+  "devDependencies": {
+    "nodemon": "^2.0.7"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "pg": "^8.5.1",
+    "sequelize": "^6.4.0"
+  }
+}
